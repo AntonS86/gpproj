@@ -1,11 +1,16 @@
 import Vue from "vue";
+import Vuex from "vuex";
 import App from "./App.vue";
-const axios = require("axios");
+import Axios from "axios";
+import VuexStore from "./store";
 
-Vue.prototype.$axios = axios;
 
+Vue.prototype.$axios = Axios;
+Vue.use(Vuex);
+const store = new Vuex.Store(VuexStore);
 Vue.config.productionTip = false;
 
 new Vue({
-  render: h => h(App)
+    store,
+    render: h => h(App)
 }).$mount("#app");
