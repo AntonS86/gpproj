@@ -3,6 +3,7 @@ import Vuex from "vuex";
 import App from "./App.vue";
 import Api from "@/services/Api";
 import VuexStore from "./store";
+import "./less/main.less";
 
 Vue.prototype.$api = Api;
 Vue.use(Vuex);
