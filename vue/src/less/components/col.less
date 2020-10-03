@@ -1,0 +1,16 @@
+@import "../utils/_vars";
+
+.col {
+    flex: 1 0 0;
+    min-width: 0;
+
+    &_3 {
+        flex: 0 0 auto;
+        width: percentage(3 / @grid-columns);
+    }
+
+    &_6 {
+        flex: 0 0 auto;
+        width: percentage(6 / @grid-columns);
+    }
+}

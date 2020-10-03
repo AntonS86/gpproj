@@ -1,7 +1,10 @@
-<template>
+<template functional>
     <footer class="footer">
           <div class="footer__wrapper">
-              footer
+              <p class="font_center">Footer</p>
           </div>
     </footer>
 </template>
+<script>
+export default {}
+</script>
