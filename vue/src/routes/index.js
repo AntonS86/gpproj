@@ -2,7 +2,7 @@ import store from "../store";
 import home from "../pages/home";
 import notFound from "../pages/notFound";
 import group from "../pages/group";
-
+import node from "../pages/node";
 
 const routes = [
 
@@ -24,6 +24,11 @@ const routes = [
         path: "/group/:id",
         name: "group",
         component: group,
+        /**
+         *
+         * @param router
+         * @returns {{groupId: number}}
+         */
         props: (router) => {
             return {
                 groupId: +router.params.id,
@@ -50,7 +55,29 @@ const routes = [
     {
         path: "/node/:id",
         name: "node",
-        component: home
+        component: node,
+        /**
+         *
+         * @param router
+         * @returns {{nodeId: number}}
+         */
+        props: (router) => {
+            return {
+                nodeId: +router.params.id,
+            }
+        },
+        /**
+         * route protection
+         * @param to
+         * @param from
+         * @param next
+         * @returns {*}
+         */
+        beforeEnter(to, from, next) {
+            const id = +to.params.id;
+            if (store.getters.isNodeById(id)) return next();
+            return next({name: "404"});
+        }
     },
     /**
      * @router 404

@@ -8,6 +8,13 @@ export default {
         return state.groups;
     },
 
+    getGroupByNodeId(state) {
+        return (id) => {
+            const groupsIds = state.nodes[id].groups;
+            return Array.from(groupsIds).map((id) => state.groups[id]);
+        }
+    },
+
     /**
      * checking if there is a group
      * @param {Object} state
@@ -26,6 +33,28 @@ export default {
      */
     getNodes(state) {
         return state.nodes;
+    },
+
+    /**
+     * get node by id
+     * @param state
+     * @returns {function(number): Node}
+     */
+    getNodeById(state) {
+        return (id) => {
+            return state.nodes[id];
+        }
+    },
+
+    /**
+     *
+     * @param state
+     * @returns {function(number): boolean}
+     */
+    isNodeById(state) {
+        return (id) => {
+            return !!state.nodes[id];
+        }
     },
 
     /**
