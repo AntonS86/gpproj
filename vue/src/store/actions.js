@@ -1,15 +1,27 @@
 import Api from "@/services/Api";
-import {nodesNormalize,} from "@/services/helpers";
+import {nodesNormalize, metricsNormalize} from "@/services/helpers";
+import errorHandler from "../services/errorHandler";
 
 export default {
-    async fetchNodes({commit}) {
+    /**
+     *
+     * @param commit
+     * @returns {Promise<void>}
+     */
+    async fetchData({commit}) {
         try {
-            const groupsAndNodes = await Api.getGroups();
-            const normalizeGroupsAndNodes = nodesNormalize(groupsAndNodes);
-            console.log(normalizeGroupsAndNodes)
-            commit("setGroupsNodes", normalizeGroupsAndNodes)
+            const groupsAndNodes = Api.getGroups();
+            const metrics = Api.getMetrics();
+
+            const [responseGroupsAndNodes, responseMetrics] = await Promise.all([groupsAndNodes, metrics]);
+            const normolizeData = {
+                ...nodesNormalize(responseGroupsAndNodes),
+                metrics: metricsNormalize(responseMetrics),
+            }
+
+            commit("setGroupsNodes", normolizeData)
         } catch (e) {
-            console.log(e);
+            errorHandler(e);
         }
     }
 };

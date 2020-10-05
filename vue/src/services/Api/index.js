@@ -7,7 +7,7 @@ import axios from "axios";
 const Api = {
     /**
      * get all groups with nodes
-     * @return {Promise<AxiosResponse<Object[]>>} contains object with nodes information
+     * @return {Promise<GroupsWithNodes[]>} contains nodes information
      */
     getGroups() {
         return axios.get("/api/groups")
@@ -16,7 +16,7 @@ const Api = {
 
     /**
      * get metrics
-     * @return {Promise<AxiosResponse<Object[]>>} contains object with metrics information
+     * @return {Promise<MetricResponse[]>} contains metrics information
      */
     getMetrics() {
         return axios.get("/api/metrics")

@@ -10,12 +10,13 @@ export default {
     /**
      *
      * @param state
-     * @param {Object} payload - object with groups and nodes
-     * @param {Object} payload.groups - contains groups
-     * @param {Object} payload.nodes - contains nodes
+     * @param {GroupsAndMetricsPayload} payload - object with groups and nodes
      */
     setGroupsNodes(state, payload) {
+        console.log(payload)
         state.groups = payload.groups;
         state.nodes = payload.nodes;
+        state.application = payload.applications;
+        state.metrics = payload.metrics;
     }
 };

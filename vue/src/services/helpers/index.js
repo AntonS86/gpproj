@@ -2,7 +2,7 @@ import Node from "../../models/Node";
 import Group from "../../models/Group";
 
 /**
- *
+ * save node
  * @param {Object.<number, Node>} nodes
  * @param {GroupsWithNodes} node
  * @returns {Node}
@@ -15,7 +15,7 @@ const saveNode = (nodes, node) => {
 }
 
 /**
- *
+ * save group
  * @param {Object.<number, Group>} groups
  * @param {GroupsWithNodes} node
  * @returns {Group}
@@ -27,10 +27,11 @@ const saveGroup = (groups, node) => {
     return groups[node.group_id];
 }
 
+
 /**
- *
+ * normalizing Groups and nodes
  * @param {GroupsWithNodes[]} nodes
- * @returns {Object}
+ * @returns {NormalizeGroupsWithNodes}
  */
 export const nodesNormalize = (nodes) => {
     const meta = {
@@ -49,9 +50,9 @@ export const nodesNormalize = (nodes) => {
 };
 
 /**
- *
- * @param {Object[]} metrics
- * @returns {Object}
+ * normalizing metric data
+ * @param {MetricResponse[]} metrics
+ * @returns {Object.<number, Metric[]>}
  */
 export const metricsNormalize = (metrics) => {
     return metrics.reduce((acc, el) => {

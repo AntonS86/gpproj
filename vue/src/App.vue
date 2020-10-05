@@ -3,7 +3,7 @@
         <v-header/>
         <v-main>
             <container>
-                <home/>
+                <router-view></router-view>
             </container>
         </v-main>
         <v-footer/>
@@ -15,7 +15,6 @@ import vHeader from "./components/header";
 import vMain from "./components/main";
 import vFooter from "./components/footer";
 import container from "./components/container";
-import home from "./components/home";
 
 export default {
     name: "app",
@@ -24,7 +23,6 @@ export default {
         vMain,
         vFooter,
         container,
-        home
     },
     data() {
         return {};
