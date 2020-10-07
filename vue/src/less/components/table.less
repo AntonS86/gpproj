@@ -1,0 +1,46 @@
+@import "../utils/_vars";
+
+.table {
+    width: 100%;
+
+    &_fixed {
+        table-layout: fixed;
+        width: 100%;
+        white-space: nowrap;
+    }
+
+    &_bordered {
+        border-collapse: collapse;
+        border-top: 1px solid @grey-400;
+        border-bottom: 1px solid @grey-400;
+
+        & td {
+            border-top: 1px solid @grey-400;
+        }
+    }
+
+    &__col_bordered {
+        & th+th,
+        & td+td {
+            border-left: 1px solid @grey-400;
+        }
+    }
+
+    &__head {
+
+        & th {
+            background-color: @grey-200;
+        }
+
+        &_sticky th {
+            position: sticky !important;
+            top: 0;
+            z-index: 100;
+        }
+    }
+
+    & th, & td {
+        padding: @spacer-2 @spacer-3;
+        text-align: left;
+    }
+}

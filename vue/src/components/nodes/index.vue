@@ -1,30 +1,34 @@
 <template>
     <tile header="Nodes">
-        <div class="grid">
-            <div class="col col_12 nodes-list">
-                <div class="grid mb_3 nodes-list__header">
-                    <div class="col col_2">Status</div>
-                    <div class="col col_4">Caption</div>
-                    <div class="col col_6">Info</div>
-                </div>
-                <div
-                    class="grid mb_3 node"
-                    v-for="node of nodes"
-                    :key="node.id"
-                >
-                    <div
-                        class="col col_2"
-                        :style="{backgroundColor: node.statusColor}"
-                    >{{node.statusDescription}}</div>
-                    <div class="col col_4">
-                        <router-link class="link link_stretched" :to="`/node/${node.id}`">
+        <table class="table table_bordered table_fixed table__col_bordered">
+            <thead class="table__head table__head_sticky">
+                <tr>
+                    <th scope="col">Status</th>
+                    <th scope="col">Caption</th>
+                    <th scope="col">Info</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="node of nodes" :key="node.id">
+                    <td
+                    >
+                        <div class="grid" :style="{backgroundColor: node.statusColor}">
+                            <div class="col_12">
+                                {{node.statusDescription}}
+                            </div>
+                        </div>
+                    <td
+                        scope="row">
+                        <router-link class="link" :to="`/node/${node.id}`">
                             {{node.caption}}
                         </router-link>
-                    </div>
-                    <metric-info class="col col_6" :metric="getLastMetric(node.id)"/>
-                </div>
-            </div>
-        </div>
+                    </td>
+                    <td>
+                        <metric-info class="" :metric="getLastMetric(node.id)"/>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </tile>
 </template>
 <script>
