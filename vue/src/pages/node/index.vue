@@ -21,11 +21,9 @@
         <div class="col_3">
             <metricsNode class="mb_3" :metrics="metrics"></metricsNode>
             <tile header="Interfaces" class="mb_3">
-                User
+                Interface
             </tile>
-            <tile header="Administrators" class="mb_3">
-                User
-            </tile>
+            <user :user="user"></user>
         </div>
     </div>
 </template>
@@ -35,6 +33,7 @@ import tile from "@/components/tile";
 import groups from "@/components/groups";
 import nodes from "@/components/nodes";
 import metricsNode from "@/components/metricsNode";
+import user from "@/components/user";
 
 export default {
     props: {
@@ -47,10 +46,11 @@ export default {
         tile,
         groups,
         nodes,
-        metricsNode
+        metricsNode,
+        user
     },
     computed: {
-        ...mapGetters(["getGroupByNodeId", "getNodeById", "getMetricsByNodeId"]),
+        ...mapGetters(["getGroupByNodeId", "getNodeById", "getMetricsByNodeId", "getUserByNodeId"]),
         nodes() {
             return [this.getNodeById(this.nodeId)];
         },
@@ -59,6 +59,10 @@ export default {
         },
         metrics() {
             return this.getMetricsByNodeId(this.nodeId);
+        },
+
+        user() {
+            return this.getUserByNodeId(this.nodeId);
         }
     }
 }

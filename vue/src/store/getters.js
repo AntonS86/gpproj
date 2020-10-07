@@ -58,6 +58,19 @@ export default {
     },
 
     /**
+     * get user by id
+     * @param {Object} state
+     * @returns {function(number): User}
+     */
+    getUserByNodeId(state) {
+        return (id) => {
+            const userId = state.nodes[id].userId;
+            console.log(state)
+            return state.users[userId];
+        }
+    },
+
+    /**
      * get Nodes By Group Id
      * @param {Object} state
      * @returns {function(number): Node[]}

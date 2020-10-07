@@ -1,5 +1,8 @@
 /**
  * @class Application
+ * @property {number} id
+ * @property {string} caption
+ * @property {Set<number>} nodes
  */
 export default class Application {
     /**

@@ -20,12 +20,6 @@
         </div>
         <div class="col_3">
             <metricsFewNodes class="mb_3" :metrics="metrics"></metricsFewNodes>
-            <tile header="Interfaces" class="mb_3">
-                User
-            </tile>
-            <tile header="Administrators" class="mb_3">
-                User
-            </tile>
         </div>
     </div>
 </template>

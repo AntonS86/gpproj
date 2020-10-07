@@ -18,5 +18,6 @@ export default {
         state.nodes = payload.nodes;
         state.application = payload.applications;
         state.metrics = payload.metrics;
+        state.users = payload.users;
     }
 };

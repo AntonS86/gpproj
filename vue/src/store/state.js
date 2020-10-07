@@ -2,5 +2,6 @@ export default {
     loading: false,
     applications: {},
     groups: {},
-    nodes: {}
+    nodes: {},
+    users: {}
 }
