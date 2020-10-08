@@ -16,7 +16,7 @@ export default {
         console.log(payload)
         state.groups = payload.groups;
         state.nodes = payload.nodes;
-        state.application = payload.applications;
+        state.applications = payload.applications;
         state.metrics = payload.metrics;
         state.users = payload.users;
     }

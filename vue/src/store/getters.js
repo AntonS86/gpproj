@@ -65,7 +65,6 @@ export default {
     getUserByNodeId(state) {
         return (id) => {
             const userId = state.nodes[id].userId;
-            console.log(state)
             return state.users[userId];
         }
     },
@@ -82,13 +81,11 @@ export default {
         }
     },
 
-    /**
-     * get all metrics
-     * @param state
-     * @returns {Object.<number, Metric[]>}
-     */
-    getMetrics(state) {
-        return state.metrics;
+    getApplicationsByNodeId(state) {
+        return (id) => {
+            const applicationsIds = state.nodes[id].applications;
+            return Array.from(applicationsIds).map((id) => state.applications[id]);
+        }
     },
 
     /**

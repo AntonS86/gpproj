@@ -24,6 +24,7 @@
                 Interface
             </tile>
             <user :user="user"></user>
+            <applications :applications="applications"></applications>
         </div>
     </div>
 </template>
@@ -34,6 +35,7 @@ import groups from "@/components/groups";
 import nodes from "@/components/nodes";
 import metricsNode from "@/components/metricsNode";
 import user from "@/components/user";
+import applications from "@/components/applications";
 
 export default {
     props: {
@@ -47,10 +49,17 @@ export default {
         groups,
         nodes,
         metricsNode,
-        user
+        user,
+        applications
     },
     computed: {
-        ...mapGetters(["getGroupByNodeId", "getNodeById", "getMetricsByNodeId", "getUserByNodeId"]),
+        ...mapGetters([
+            "getGroupByNodeId",
+            "getNodeById",
+            "getMetricsByNodeId",
+            "getUserByNodeId",
+            "getApplicationsByNodeId"
+        ]),
         nodes() {
             return [this.getNodeById(this.nodeId)];
         },
@@ -60,10 +69,15 @@ export default {
         metrics() {
             return this.getMetricsByNodeId(this.nodeId);
         },
-
         user() {
             return this.getUserByNodeId(this.nodeId);
+        },
+
+        applications() {
+            const a = this.getApplicationsByNodeId(this.nodeId);
+            console.log(a);
+            return a;
         }
     }
-}
+};
 </script>
