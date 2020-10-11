@@ -70,6 +70,18 @@ export default {
     },
 
     /**
+     * get port by node id
+     * @param {Object} state
+     * @returns {function(number): Port}
+     */
+    getPortByNodeId(state) {
+        return (id) => {
+            const portId = state.nodes[id].portId;
+            return state.ports[portId];
+        }
+    },
+
+    /**
      * get Nodes By Group Id
      * @param {Object} state
      * @returns {function(number): Node[]}

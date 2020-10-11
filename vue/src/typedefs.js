@@ -47,6 +47,7 @@
  * @property {Object.<number, Group>} groups
  * @property {Object.<number, Application>} applications
  * @property {Object.<number, User>} users
+ * @property {Object.<number, Port>} ports
  */
 
 /**
@@ -56,4 +57,5 @@
  * @property {Object.<number, Application>} applications
  * @property {Object.<number, Metric[]>} metrics
  * @property {Object.<number, User>} users
+ * @property {Object.<number, port>} ports
  */

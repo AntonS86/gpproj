@@ -7,6 +7,7 @@
  * @property {number} userId
  * @property {Set<number>} groups
  * @property {Set<number>} applications
+ * @property {number} portId
  */
 export default class Node {
     /**
@@ -16,8 +17,9 @@ export default class Node {
      * @param {string} statusDescription
      * @param {string} statusColor
      * @param {number} userId
+     * @param {number} portId
      */
-    constructor(id, caption, statusDescription, statusColor, userId) {
+    constructor(id, caption, statusDescription, statusColor, userId, portId) {
         this.id = id;
         this.caption = caption;
         this.statusDescription = statusDescription;
@@ -25,6 +27,7 @@ export default class Node {
         this.userId = userId;
         this.groups = new Set();
         this.applications = new Set();
+        this.portId = portId;
     }
 
     /**

@@ -1,5 +1,5 @@
 <template>
-    <tile header="Applications">
+    <tile header="Application">
         <div class="grid">
             <div
                 v-for="app of applications"

@@ -19,5 +19,6 @@ export default {
         state.applications = payload.applications;
         state.metrics = payload.metrics;
         state.users = payload.users;
+        state.ports = payload.ports;
     }
 };

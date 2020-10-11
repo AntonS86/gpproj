@@ -20,10 +20,8 @@
         </div>
         <div class="col_3">
             <metricsNode class="mb_3" :metrics="metrics"></metricsNode>
-            <tile header="Interfaces" class="mb_3">
-                Interface
-            </tile>
-            <user :user="user"></user>
+            <port class="mb_3" :port="port"></port>
+            <user class="mb_3" :user="user"></user>
             <applications :applications="applications"></applications>
         </div>
     </div>
@@ -36,6 +34,7 @@ import nodes from "@/components/nodes";
 import metricsNode from "@/components/metricsNode";
 import user from "@/components/user";
 import applications from "@/components/applications";
+import port from "@/components/port"
 
 export default {
     props: {
@@ -50,7 +49,8 @@ export default {
         nodes,
         metricsNode,
         user,
-        applications
+        applications,
+        port
     },
     computed: {
         ...mapGetters([
@@ -58,7 +58,8 @@ export default {
             "getNodeById",
             "getMetricsByNodeId",
             "getUserByNodeId",
-            "getApplicationsByNodeId"
+            "getApplicationsByNodeId",
+            "getPortByNodeId"
         ]),
         nodes() {
             return [this.getNodeById(this.nodeId)];
@@ -74,10 +75,12 @@ export default {
         },
 
         applications() {
-            const a = this.getApplicationsByNodeId(this.nodeId);
-            console.log(a);
-            return a;
+            return this.getApplicationsByNodeId(this.nodeId);
+        },
+
+        port() {
+            return this.getPortByNodeId(this.nodeId);
         }
-    }
+    },
 };
 </script>
